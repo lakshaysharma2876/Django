@@ -1,10 +1,22 @@
 {% extends "index.html" %}
 
-{% block title %}
-All types of chai
-{% endblock %}
+{% block title %} All types of chai {% endblock %} 
 
+{%block body %}
+<p>This is the home page for all types of chai available</p>
 
-{% block body %}     
-    <p>This is the home page for all types of chai available</p>
+{% for chai in chais %}
+<div>
+  <img src="{{chai.image.url}}" alt="{{chai.name}}" />
+  <h3>{{chai.name}}</h3>
+  <h3>{{chai.description}}</h3>
+  <h3><a href="{% url 'chai_detail' chai.id %}"> Details </a></h3>
+
+  <h3>
+    {% empty %}
+    No chai available
+  </h3>
+</div>
+
+{% endfor %} 
 {% endblock %}

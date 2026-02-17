@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Chai description
+{% endblock %}
+
+{% block body %}
+ <h1>Your order has the following chai selected: </h1>
+ <div class = 'chai-item'>
+        <img src = "{{chai.image.url}}" alt = "{{chai.name}}">
+        <h3>{{chai.name}}</h3>
+        <p>{{chai.description}}</p>
+        </div>
+{% endblock %}
